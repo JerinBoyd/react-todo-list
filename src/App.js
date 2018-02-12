@@ -8,8 +8,10 @@ class App extends Component {
     this.state = {
       todos: [
       ]
-
     }
+    this.resetList = this.resetList.bind(this)
+
+    
     this.todosInput = ''
   }
 
@@ -28,12 +30,16 @@ class App extends Component {
     this.todoInput.value = ''
 
     this.todoInput.focus()
+    
 
+  }
+  resetList(){
+    this.setState({todos: []})
   }
 
   render() {
     return (
-       <div className="ro">
+       <div>
          <h1>List ToDo</h1>
          <p>Todo's Count: {this.state.todos.length}</p>
          <ul>
@@ -44,8 +50,9 @@ class App extends Component {
          </ul>
          <input type="text" placeholde='Enter Todo' ref={(input) => this.todoInput = input} />
          <button onClick={this.addTodo.bind(this)}>Add</button>
-         <div><button type="reset">Reset List</button></div>
-        
+         <div>
+         <button label="Reset" onClick={this.resetList}>Reset </button>
+         </div>
          
 
 
