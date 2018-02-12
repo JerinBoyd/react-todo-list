@@ -14,10 +14,10 @@ class App extends Component {
   }
 
   addTodo(){
-    let todosValue = this.todoInput.value // had sooooooo much trouble finding the correct sequence 
+    const todosValue = this.todoInput.value // had sooooooo much trouble finding the correct sequence 
 
     
-    let newTodos = this.state.todos
+    const newTodos = this.state.todos
     newTodos.push(todosValue)
 
     
@@ -33,7 +33,7 @@ class App extends Component {
 
   render() {
     return (
-       <div>
+       <div className="ro">
          <h1>List ToDo</h1>
          <p>Todo's Count: {this.state.todos.length}</p>
          <ul>
@@ -45,6 +45,8 @@ class App extends Component {
          <input type="text" placeholde='Enter Todo' ref={(input) => this.todoInput = input} />
          <button onClick={this.addTodo.bind(this)}>Add</button>
          <div><button type="reset">Reset List</button></div>
+        
+         
 
 
 
