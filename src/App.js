@@ -1,30 +1,49 @@
 import React, { Component } from 'react';
 
-import './App.css';
+
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      todo: []
+      todos: [
+      ]
 
     }
-    this.todoInput = 
+    this.todosInput = ''
   }
+
   addTodo(){
+    let todosValue = this.todoInput.value // had sooooooo much trouble finding the correct sequence 
+
+    
+    let newTodos = this.state.todos
+    newTodos.push(todosValue)
+
+    
+    this.setState({
+      todos: newTodos
+    })
+    
+    this.todoInput.value = ''
+
+    this.todoInput.focus()
 
   }
 
   render() {
     return (
        <div>
-         <h1>ToDo List</h1>
-         <p>List Count: {this.state.todo.length}</p>
+         <h1>List ToDo</h1>
+         <p>Todo's Count: {this.state.todos.length}</p>
          <ul>
-           <li>Sample</li>
+           { this.state.todos.map((todo, index) => {
+                return (<li key={index}>{todo}</li>)
+                
+           })}
          </ul>
-         <input type="text" placeholde='Enter ToDo' />
-         <button>Add</button>
+         <input type="text" placeholde='Enter Todo' ref={(input) => this.todoInput = input} />
+         <button onClick={this.addTodo.bind(this)}>Add</button>
 
 
 
