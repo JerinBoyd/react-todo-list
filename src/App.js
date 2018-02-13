@@ -37,6 +37,9 @@ class App extends Component {
   resetList(){
     this.setState({todos: []})
   }
+  handleValueChange(e){
+    this.setState({value: +e.target.value});
+  }
 
   render() {
     return (
@@ -49,7 +52,7 @@ class App extends Component {
                 
            })}
          </ul>
-         <input type="text" placeholde='Enter Todo' value={this.state.todosInput} onChange={(e) => } />
+         <input type="text" placeholde='Enter Todo' value={this.state.todosInput} onChange={(e) => this.setState({todosInput: e.target.value})} />
          <button onClick={this.addTodo.bind(this)}>Add</button>
          <div>
          <button label="Reset" onClick={this.resetList}>Reset </button>
