@@ -43,7 +43,7 @@ class App extends Component {
   render() {
     return (
        <div >
-         <h1>List ToDo</h1>
+         <h1>ToDos</h1>
          <p>Todo's Count: {this.state.todos.length}</p>
          <ul>
            { this.state.todos.map((todo, index) => {
