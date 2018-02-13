@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import './App.css';
 
 
 
@@ -37,13 +38,11 @@ class App extends Component {
   resetList(){
     this.setState({todos: []})
   }
-  handleValueChange(e){
-    this.setState({value: +e.target.value});
-  }
+
 
   render() {
     return (
-       <div>
+       <div >
          <h1>List ToDo</h1>
          <p>Todo's Count: {this.state.todos.length}</p>
          <ul>
