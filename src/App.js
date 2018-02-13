@@ -6,30 +6,31 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
+      todosInput:'',
       todos: [
       ]
     }
     this.resetList = this.resetList.bind(this)
 
     
-    this.todosInput = ''
+    
   }
 
   addTodo(){
-    const todosValue = this.todoInput.value // had sooooooo much trouble finding the correct sequence 
+    const todosValue = this.state.todosInput // had sooooooo much trouble finding the correct sequence 
 
     
-    const newTodos = this.state.todos
-    newTodos.push(todosValue)
+    const newTodos = [...this.state.todos, todosValue]
+     
 
     
     this.setState({
-      todos: newTodos
+      todos: newTodos, 
+      todosInput: ''
     })
     
-    this.todoInput.value = ''
 
-    this.todoInput.focus()
+  
     
 
   }
@@ -48,7 +49,7 @@ class App extends Component {
                 
            })}
          </ul>
-         <input type="text" placeholde='Enter Todo' ref={(input) => this.todoInput = input} />
+         <input type="text" placeholde='Enter Todo' value={this.state.todosInput} onChange={(e) => } />
          <button onClick={this.addTodo.bind(this)}>Add</button>
          <div>
          <button label="Reset" onClick={this.resetList}>Reset </button>
