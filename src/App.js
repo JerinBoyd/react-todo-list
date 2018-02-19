@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './App.css';
 
 
 
@@ -42,7 +42,7 @@ class App extends Component {
 
   render() {
     return (
-       <div >
+       <div className='div1'>
          <h1>ToDos</h1>
          <p>Todo's Count: {this.state.todos.length}</p>
          <ul>
@@ -54,7 +54,7 @@ class App extends Component {
          <input type="text" placeholde='Enter Todo' value={this.state.todosInput} 
                 onChange={(e) => this.setState({todosInput: e.target.value})} />
          <button onClick={this.addTodo.bind(this)}>Add</button>
-         <div>
+         <div className='div2'>
          <button label="Reset" onClick={this.resetList}>Reset </button>
          </div>
          
